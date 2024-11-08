@@ -1,11 +1,13 @@
 import pandas as pd
 import plotly.express as px
 import streamlit as st
+from package.module1 import load_from_url
 
 st.title('Popular Name Trends')
 
 url = 'https://github.com/esnt/Data/raw/main/Names/popular_names.csv'
-df = pd.read_csv(url)
+# df = pd.read_csv(url)
+df = load_from_url(url)
 
 name = st.text_input('Enter a name', value='Jacob')
 name_df = df[df['name']==name]
